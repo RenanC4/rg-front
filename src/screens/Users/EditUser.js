@@ -13,38 +13,65 @@ export default function EditUser({match}) {
     userDetails(match.params.id)
   }, [match.params.id])
 
+  const handleInputChange = e => {
+    const {name, value} = e.target
+    console.log('a', e.target)
+    setUser({...user, [name]: value})
+  }
   
-  
+  async function updateUser() {
+     const funfou = await UserService.updateUser(user)
+     console.log(funfou)
+  }
+
   return (
     <>
-      <form onSubmit={this.handleSubmit}>
+      <form>
         <label>
           Nome:
-          <input type='text' value={user.name} />
+          <input 
+            onChange={handleInputChange}
+            name='name'
+            value={user.name}
+          />
         </label>
         <label>
           Email:
-          <input type='text' value={user.email} />
+          <input 
+            onChange={handleInputChange}
+            name='email' 
+            value={user.email} 
+          />
         </label>
         <label>
           Endereço:
-          <input type='text' value={user.address} />
+          <input 
+            onChange={handleInputChange}
+            name='address'
+            value={user.address} 
+          />
         </label>
         <label>
           Cidade:
-          <input type='text' value={user.city} />
+          <input 
+            onChange={handleInputChange}
+            name='city'
+            value={user.city} 
+          />
         </label>
         <label>
           Estado:
-          <input type='text' value={user.state} />
+          <input  
+            onChange={handleInputChange}
+            name='state'value={user.state} 
+          />
         </label>
         <label>
-          Criado em:  <span>{formatDate(user.createdAt)}</span>
+          Criado em:
+          <input readOnly value={formatDate(user.createdAt)}/>
         </label>
-        <input type="submit" value="Salvar" />
       </form>
-       
-        {console.log(user)}
+      <button onClick={updateUser}>Butao</button>
     </>
   )
 }
