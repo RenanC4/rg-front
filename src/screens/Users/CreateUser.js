@@ -21,7 +21,7 @@ export default function CreateUser() {
     const {status, message} = await UserService.createUser(user)
     if (status === STATUS_SUCCESS) {
       notifySuccess(message)
-      setUser({})  
+      setUser({name: '', email: '', address: '', city: ''})  
       return
     }
     notifyError(message)

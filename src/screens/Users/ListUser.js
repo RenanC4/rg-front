@@ -31,7 +31,6 @@ export default function ListUser() {
         ) 
     })
     setUsers(usersListFilter)
-    console.log('a', usersListFilter)
   }
 
   async function deleteUser(id) {
@@ -116,11 +115,11 @@ export default function ListUser() {
         </>
       )}
       
-      <div className='new-user--button'>
-        <Link to={'/novo'} style={{ textDecoration: 'none' }}>
-          <span>+</span>
-        </Link>
-      </div>
+      <Link to={'/novo'} style={{ textDecoration: 'none' }}>
+        <div className='new-user--button'>
+            <span>+</span>
+        </div>
+      </Link>
     </div>
   )
 }

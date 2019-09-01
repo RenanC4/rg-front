@@ -17,7 +17,6 @@ export default class UserService {
   }
 
   static async updateUser(data) {
-    console.log('data q ta vino', data)
     const response = await api.put(`/users`, {
       data
     })
@@ -32,7 +31,6 @@ export default class UserService {
   }
 
   static async deleteUser(_id) {
-    console.log('aaa', _id)
     const response = await api.delete(`/users`, {
       data: {_id}
     })
