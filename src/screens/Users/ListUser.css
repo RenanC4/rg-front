@@ -1,0 +1,108 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.dashboard-container input{
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #2C67D3;
+  box-sizing: border-box;
+  color: #000;
+  display: block;
+  font-size: 12pt;
+  opacity: .6;
+  padding-bottom: 15px;
+  padding-left: 5px;
+  width: 100%;
+}
+
+.dashboard-users-container {
+  display: flex;
+  margin: 30px;
+  width: 100%;
+}
+
+.empty {
+  font-size: 20pt;
+  color: #999;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.list-header {
+  display: grid;
+  grid-gap: 10px; 
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  height: 50px;
+  background-color: #2C67D3;
+}
+
+.list-header span {
+  font-size: 15pt;
+  font-weight: normal;
+  color: #fff;
+}
+
+.list-header .action-labels {
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.dashboard-users-container ul {
+  list-style-type: none;
+  display: grid;
+  width: 100%;
+  grid-gap: 10px;
+ }
+
+.dashboard-users-container ul li {
+  display: grid;
+  grid-gap: 10px; 
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  height: 80px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: rgba(167, 160, 168, 0.37);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-users-container ul li:nth-child(even) {
+  background-color: rgba(235, 224, 240, 0.445);
+}
+
+.dashboard-users-container ul li span{
+  font-size: 14pt;
+  font-weight: medium;
+  color: #444;
+}
+
+.dashboard-users-container .action-icons {
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.dashboard-container .new-user--button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  min-width: 100px;
+  cursor: pointer;
+  border: 3px dotted #2C67D3;
+}
+
+.dashboard-container .new-user--button span{
+  font-size: 50pt;
+  color: #2C67D3
+}

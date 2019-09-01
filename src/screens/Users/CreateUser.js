@@ -1,64 +1,95 @@
 import React, {useState} from 'react'
+import {Form, Input, Select} from '@rocketseat/unform'
+import * as Yup from 'yup'
+import {Redirect} from 'react-router-dom'
 import UserService from '../../services/userService'
+import {ToastContainer, toast} from 'react-toastify'
+import {formatDate} from '../../Utils/Utils'
+import {STATES, STATUS_SUCCESS} from '../../constants'
+import './UserForm.css'
 
 export default function CreateUser() {
   const [user, setUser] = useState({})
+  const [redirectToList, setRedirectToList] = useState(false)
 
-
-  const handleInputChange = e => {
+  const handleChange = e => {
     const {name, value} = e.target
-    console.log('a', e.target)
     setUser({...user, [name]: value})
   }
   
   async function createUser() {
-     const funfou = await UserService.createUser(user)
-     console.log(funfou)
+    const {status, message} = await UserService.createUser(user)
+    if (status === STATUS_SUCCESS) {
+      notifySuccess(message)
+      setUser({})  
+      return
+    }
+    notifyError(message)
   }
+
+  const schema = Yup.object().shape({
+    name: Yup.string()
+      .required(<span className='form-error'>*Campo Nome obrigatório</span>),
+    email: Yup.string()
+      .email(<span className='form-error'>*Email invalido</span>)
+      .required(<span className='form-error'>*Campo E-mail obrigatório</span>),
+    address: Yup.string()
+      .required(<span className='form-error'>*Campo Endereço obrigatório</span>),
+      state: Yup.string()
+        .required(<span className='form-error'>*Campo Estado obrigatório</span>),
+    city: Yup.string()
+    .required(<span className='form-error'>*Campo Cidade obrigatório</span>)      
+  })
+
+  const notifyError = message => toast.error(message)
+  const notifySuccess = message => toast.success(message)
+
   return (
-    <>
-      <form>
-        <label>
-          Nome:
-          <input 
-            onChange={handleInputChange}
-            name='name'
+    <div className='main-container'>
+      <ToastContainer />
+      {redirectToList && <Redirect to='/' />}
+      <h1>Novo Usuario</h1>
+      <Form schema={schema} onSubmit={createUser}>
+        <Input  
+            name='name' 
+            onChange={handleChange}
             value={user.name}
-          />
-        </label>
-        <label>
-          Email:
-          <input 
-            onChange={handleInputChange}
-            name='email' 
-            value={user.email} 
-          />
-        </label>
-        <label>
-          Endereço:
-          <input 
-            onChange={handleInputChange}
-            name='address'
-            value={user.address} 
-          />
-        </label>
-        <label>
-          Cidade:
-          <input 
-            onChange={handleInputChange}
-            name='city'
-            value={user.city} 
-          />
-        </label>
-        <label>
-          Estado:
-          <input  
-            onChange={handleInputChange}
-            name='state'value={user.state} 
-          />
-        </label>
-      </form>
-      <button onClick={createUser}>Butao</button>
-    </>
+            placeholder='Nome'
+        />
+        <Input  
+            name='email'
+            onChange={handleChange}
+            value={user.email}
+            placeholder='E-mail'
+        />
+        <Input  
+            name='address' 
+            onChange={handleChange}
+            value={user.address}
+            placeholder='Endereço'
+        />
+        <Input  
+            name='city' 
+            onChange={handleChange}
+            value={user.city}
+            placeholder='Cidade'
+        />
+        <Select 
+            name='state'
+            onChange={handleChange}
+            options={STATES} 
+            placeholder='Estado'
+        />
+        <Input  
+            name='createdAt'
+            readOnly 
+            value={'Criado em ' +formatDate(user.createdAt)}
+        />
+        <div className='user-button'>
+         <button className='color-btn green' type='submit'>Criar</button>
+         <button className='color-btn red' onClick={()=>setRedirectToList(true)}>Voltar</button>
+        </div>
+      </Form>
+    </div>
   )
 }

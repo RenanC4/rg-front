@@ -17,17 +17,18 @@ export default class UserService {
   }
 
   static async updateUser(data) {
+    console.log('data q ta vino', data)
     const response = await api.put(`/users`, {
       data
     })
-    return response
+    return response.data
   }
 
   static async createUser(data) {
     const response = await api.post(`/users`, {
       data
     })
-    return response
+    return response.data
   }
 
   static async deleteUser(_id) {

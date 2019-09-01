@@ -1,0 +1,149 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.main-container h1 {
+  color:#2C67D3;
+  padding-bottom: 20px;
+  font-size: 25pt;
+  font-weight: normal;
+  text-align: center;
+}
+
+.main-container form {
+  padding-top: 25px;
+  width: 50%;
+}
+
+.main-container input {
+  color:#666;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14pt;
+	border-radius: 0;
+	line-height: 22px;
+	background-color: #fbfbfb;
+	padding: 7px 7px;
+	margin-bottom: 10px;
+	width:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+  border: 3px solid rgba(0,0,0,0);
+}
+
+.main-container input:focus {
+	background: #fff;
+	box-shadow: 0;
+	border: 1px solid #2C67D3;
+	color: #2C67D3;
+	outline: none;
+  padding: 10px 10px 10px 15px;  
+}
+
+.main-container select {
+  color:#666;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14pt;
+	border-radius: 0;
+	line-height: 22px;
+	background-color: #fbfbfb;
+	padding: 7px 7px;
+	margin-bottom: 10px;
+	width:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+  border: 3px solid rgba(0,0,0,0);
+}
+
+.main-container select:focus {
+	background: #fff;
+	box-shadow: 0;
+	border: 1px solid #2C67D3;
+	color: #2C67D3;
+	outline: none;
+  padding: 10px 10px 10px 15px;  
+}
+
+.main-container .user-button {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  min-width: 70px;
+  cursor: pointer;
+  border: none;
+}
+
+.color-btn{
+  display: inline-block;
+  text-decoration: none;
+  margin: 0.2rem 0.3rem;
+  padding: 0.6rem 1.1rem;
+  background-color: transparent;
+  transition: all ease .3s;
+  font-size: 1rem;
+  border-radius: 1px;
+  cursor: pointer;
+}
+.color-btn *{
+   transition: all ease .3s;
+}
+.color-btn:hover, .color-btn:hover *{
+  color: white; 
+}
+.solid:hover{
+  opacity: 0.9;
+}
+.color-btn.small{
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
+.color-btn.large{
+  padding: 0.65rem 1.3rem;
+  font-size: 1.2rem;
+}
+
+.red{
+  border: 1px solid #cc2e2e;
+  color: #cc2e2e;
+}
+.red:hover{
+  background-color: #cc2e2e; 
+}
+.red *{
+  color: #cc2e2e;
+}
+.solid.red{
+  background-color: #cc2e2e; 
+  color: white;
+}
+
+.green{
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
+}
+.green:hover{
+  background-color: #2ecc71; 
+}
+.green *{
+  color: #2ecc71;
+}
+.solid.green{
+  background-color: #2ecc71; 
+  color: white;
+}
+
+.form-error{
+  color: #cc2e2e;
+  font-size: 10pt;
+}
