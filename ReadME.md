@@ -4,7 +4,7 @@
 git clone https://github.com/RenanC4/rg-front
 
 
-cd gp-front
+cd rg-front
 
 
 yarn install
