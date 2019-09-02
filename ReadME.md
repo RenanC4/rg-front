@@ -1,7 +1,7 @@
-** pg-back required to work properly **
+** rg-back required to work properly **
 
 
-git clone https://github.com/RenanC4/gp-front
+git clone https://github.com/RenanC4/rg-front
 
 
 cd gp-front
